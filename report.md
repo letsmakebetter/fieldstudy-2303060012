@@ -91,3 +91,44 @@ No `rel="sponsored"` or `rel="ugc"` attributes were found in the inspected sourc
 **Finding:** The inspected source uses `nofollow` for social media links, while no sponsored or UGC link attributes were identified.
 
 **Evidence:** A7-link-rel-check.png
+**B1 – Slow Network Loading**
+
+The website was tested using the 3G network throttling option in Chrome Developer Tools. Under normal network conditions, the page finished loading in approximately 2 seconds, while under 3G conditions it took approximately 6 seconds. The page loaded successfully in both cases. No unusual visual problems, broken images or obvious loading errors were observed in the inspected sections.
+
+**Finding:** The website takes longer to load under slower network conditions, but the inspected content remained visually functional.
+
+**Evidence:**
+- B1-no-throtling-2sec-loading-early.png
+- B1-3g-6sec-loading-later.png
+- B1-3g-whiteview-starting-load.png
+### B2 – Search with No Results
+
+The homepage does not provide a general text-based search field. Instead, it offers a reservation search panel where users select a hotel, dates and guest information. Since there is no general text search field, testing an impossible search term such as `zzzqqq` was not possible.
+
+**Finding:** The website does not appear to provide a general-purpose text search function.
+
+**Evidence:** B2-no-general-search.png
+### B3 – Offline Error State
+
+The website was tested using the Offline option in Chrome Developer Tools. After refreshing the homepage, Chrome displayed the `ERR_INTERNET_DISCONNECTED` error instead of loading the website. The browser suggested checking the network connection and reconnecting to Wi-Fi. No custom offline message or retry option from the website was observed.
+
+**Finding:** The website does not appear to provide a custom offline experience. Visitors see the browser's default connection error instead.
+
+**Evidence:** B3-offline-error.png
+### B4 – Form Validation
+The reservation form was inspected, but it was not submitted because submission could initiate a real reservation process. Therefore, form submission validation could not be tested safely.
+**Finding:** Not tested safely.
+### B5 – Form Labels
+
+The contact form displays visible labels such as Name, Surname, Country, Email, Phone and Special Requests. However, clicking the labels does not move focus to the corresponding input fields. The country selection control opens when its own selection area is clicked, but the label itself does not activate it.
+
+**Finding:** Although the form fields have visible labels, the labels do not appear to be clickable or properly associated with their controls.
+
+**Evidence:** B5-form-labels.png
+### B6 – Keyboard Accessibility
+
+The website can be navigated using the keyboard. The Tab key moves forward between interactive elements, Shift+Tab moves backward, and Enter opens selected links. Visible blue focus indicators appear on some buttons. However, some links in the top navigation menu do not show a clearly visible focus indicator.
+
+**Finding:** Basic keyboard navigation works, but focus visibility is inconsistent.
+
+**Evidence:** B6-keyboard-navigation.png
