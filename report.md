@@ -132,3 +132,109 @@ The website can be navigated using the keyboard. The Tab key moves forward betwe
 **Finding:** Basic keyboard navigation works, but focus visibility is inconsistent.
 
 **Evidence:** B6-keyboard-navigation.png
+### B7 – Lighthouse Accessibility Audit
+
+Lighthouse was used to evaluate the accessibility of the Merit Hotels homepage. The website received an accessibility score of **75/100**. The audit identified several accessibility issues, including carousel buttons without accessible names, a footer logo image without alternative text, and insufficient color contrast in some text elements.
+
+**Finding:** The website has some accessibility problems that may make navigation and content understanding more difficult for users with disabilities, especially users who rely on screen readers or have visual impairments.
+
+**Top issues identified:**
+1. Some carousel buttons do not have accessible names.
+2. The footer logo image is missing alternative text.
+3. Some text elements do not have sufficient color contrast.
+
+**Evidence:** B7-home-accessibility.png
+**Inner Page Test – Merit Royal Hotel**
+
+The Lighthouse accessibility audit was also performed on the Merit Royal Hotel detail page. The page received an accessibility score of **77/100**. The audit identified issues such as carousel buttons without accessible names, a banner image without alternative text, social media links without discernible names, and insufficient color contrast.
+
+**Finding:** The inner page has accessibility issues similar to those found on the homepage. These issues may make the website harder to use for visitors who rely on screen readers or have visual impairments.
+
+**Evidence:** B7-inner-accessibility.png
+### B8 – Vague Links and Buttons
+
+During the website inspection, several button and link labels were found to be unclear or too general. For example, the **“Details”** button on the Premium Deluxe room card does not specify which details will be displayed. A clearer label would be **“View Premium Deluxe Room Details.”**
+
+The **“Continue”** button on the reservation page does not explain what happens next. A more informative label would be **“Continue to Contact Information.”** Similarly, the **“Search”** button in the reservation panel could be improved to **“Search Rooms for Selected Hotel and Dates.”**
+
+The **“Agency Discount Code”** section does not clearly look interactive, making it difficult for users to recognize that it can be selected. It could be presented as a clearly labelled expandable button, such as **“Enter Agency Discount Code.”** Additionally, the gallery navigation indicators are difficult to notice, so users may not realize that more photos are available.
+
+**Finding:** Some interface elements need clearer labels and more visible interactive indicators to help users understand available actions.
+
+**Evidence:** B8-vague-details.png, B8-vague-continue.png, B8-vague-search.png, B8-agency-code.png, B8-gallery-indicators.png
+# Part C – Overall Evaluation and Recommendations
+
+## C1 – Website Strengths
+
+**1. Secure connection:** The website uses HTTPS and automatically redirects HTTP requests to HTTPS. This helps protect visitors while browsing the website. Evidence: A1-http.png.
+
+**2. Helpful error page:** When a non-existing page is opened, the website displays a custom 404 error page with a link to return to the homepage. This helps visitors recover from navigation errors. Evidence: A4-error-page.png.
+
+## C2 – Main Problems and Recommendations
+
+### 1. Reservation Information and Navigation Are Inconsistent
+
+**Problem:** The reservation system does not consistently preserve user selections. On the homepage, visitors can select a hotel, check-in and check-out dates, and guest information. However, after clicking the Search button, the hotel name may remain selected while dates and guest information reset to default values. Visitors must select these details again.
+
+Further problems occur when using browser navigation. For example, after returning with the browser Back button, the selected hotel may support children, but the child selection field disappears because the default Diamond hotel state remains displayed. Returning to the homepage through the hotel logo or homepage link can also remove all selections and redirect visitors to the English homepage (`/en/`).
+
+Refreshing the page, temporarily losing the internet connection, or refreshing during room selection may also cause previously selected information to disappear.
+
+**Affected users:** All visitors using the reservation system, especially those navigating between booking steps or experiencing an unstable internet connection.
+
+**Recommendation:** Preserve the selected hotel, dates, room and guest information across page navigation, browser Back and Forward actions, page refreshes and temporary network interruptions. Keep the displayed form synchronized with the selected hotel and restore the user's previous selections whenever possible.
+
+**Impact:** High  
+**Effort:** High
+
+**Evidence:** C-reservation-02-homepage-selection.png, C-reservation-03-after-search.png, C-reservation-04-browser-back.png, C-reservation-05-homepage-back.
+
+### 2. Accessibility and Interaction Problems
+
+**Problem:** Lighthouse gave the homepage an accessibility score of 75/100 and the inner hotel page 77/100. The audits identified carousel buttons without accessible names, images missing alternative text, insufficient colour contrast and social media links without accessible names. Visible form labels did not move focus to their corresponding fields when clicked. The agency discount code control also needs clearer keyboard and screen-reader accessibility.
+
+**Affected users:** Visitors using screen readers, keyboard navigation or assistive technologies, as well as users with visual impairments or those who cannot use a mouse.
+
+**Recommendation:** Add accessible names to buttons and links, provide alternative text for meaningful images, improve colour contrast, correctly associate form labels with their inputs and ensure expandable controls can be operated using a keyboard.
+
+**Impact:** High  
+**Effort:** Medium
+
+**Evidence:** B5-form-labels.png, B6-keyboard-navigation.png, B7-home-accessibility.png, B7-inner-accessibility.png, B8-agency-code.png.
+
+### 3. Page Loading and Resource Usage
+
+**Problem:** During the Network inspection, the homepage loaded 75 requests and transferred approximately 11.9 MB of data. The total resource size was approximately 86.7 MB in that measurement. Loading also took longer under the 3G network condition.
+
+**Affected users:** Visitors with slow internet connections, limited mobile data or less powerful devices.
+
+**Recommendation:** Optimise images, compress large resources, reduce unnecessary requests and load non-essential images and scripts only when needed.
+
+**Impact:** Medium–High  
+**Effort:** Medium–High
+
+**Evidence:** A3-network-overview.png, B1-3g-6sec-loading-later.png.
+
+## C3 – Additional Usability Improvements
+
+The following issues were also observed during the inspection:
+
+1. **Footer contact information:** The phone number and email address at the bottom of the website are not clickable. Unlike the Facebook and Instagram links, they do not open a calling or email application. Adding `tel:` and `mailto:` links would make contacting the hotel easier.
+
+2. **Gallery touchpad navigation:** On a laptop, using two fingers on the touchpad does not change gallery photos, while dragging a photo with one finger works. The gallery should support common touchpad gestures and provide alternative navigation controls.
+
+3. **Gallery indicators:** The small navigation dots below the gallery are difficult to notice. They should be more visible, with a clear indication of the currently selected photo.
+
+4. **Room and guest selection:** Some room and guest combinations can be selected without a sufficiently clear warning when the combination is unsuitable. The website should validate room capacity and display understandable messages.
+
+5. **Favicon consistency:** When Turkish is selected, some hotel pages display a generic globe icon instead of the Merit Hotels logo in the browser tab. The correct favicon should be displayed consistently across the Turkish pages.
+
+6. **Unclear button labels:** Labels such as "Details", "Continue" and "Search" do not always explain the action clearly. More descriptive wording would help visitors understand what happens next.
+
+7. **Agency discount code control:** The "Agency Discount Code" text appears interactive and opens when clicked, but its interactive nature is not sufficiently clear for visitors who cannot use a mouse. It should have a clear focus indicator and accessible keyboard interaction.
+
+8. **Language consistency after homepage navigation:** Returning to the homepage through the hotel logo or homepage link can redirect visitors to the English version and remove their previous reservation selections. The website should preserve the selected language and reservation information.
+
+## C4 – Overall Conclusion
+
+Merit Hotels provides a secure website with a helpful custom error page and useful hotel information. However, the most important issue is the inconsistent reservation process, which can cause visitors to lose their selections and repeat steps. Accessibility and page performance also need improvement. Addressing these problems, together with the additional usability issues, would make the website more reliable, accessible and easier to use.
